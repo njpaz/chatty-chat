@@ -1,9 +1,32 @@
 var MessageList = React.createClass({
+  getInitialState: function() {
+    return {height: 0, shouldScroll: false};
+  },
+
+  componentDidMount: function() {
+    var thisNode = ReactDOM.findDOMNode(this);
+    thisNode.scrollTop = thisNode.scrollHeight;
+  },
+
+  componentWillReceiveProps: function() {
+    var thisNode = ReactDOM.findDOMNode(this);
+    var shouldScroll = thisNode.scrollHeight <= thisNode.scrollTop + thisNode.offsetHeight;
+    this.setState({shouldScroll: shouldScroll});
+  },
+
+  componentDidUpdate: function() {
+    var thisNode = ReactDOM.findDOMNode(this);
+
+    if (this.state.shouldScroll) {
+      thisNode.scrollTop = thisNode.scrollHeight;
+    }
+  },
+
   render: function() {
     var nodes = this.props.messages.map(function(message) {
-      return <div className='message' key={message.id}>{message.content}</div>;
+      return <li className='list-group-item' key={message.id}>{message.content}</li>;
     });
 
-    return <div id='messages'>{nodes}</div>;
+    return <ul className='list-group fixed-height'>{nodes}</ul>;
   }
 });

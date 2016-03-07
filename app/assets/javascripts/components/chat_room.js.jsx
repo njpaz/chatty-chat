@@ -30,7 +30,7 @@ var ChatRoom = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className='well'>
         <MessageList messages={this.state.messages} />
         <MessageForm />
       </div>

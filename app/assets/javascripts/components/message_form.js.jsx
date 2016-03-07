@@ -15,9 +15,13 @@ var MessageForm = React.createClass({
 
   render: function() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Say something:</label><br />
-        <input type="text" value={this.state.content} onChange={this.handleContentChange} />
+      <form className='form-horizontal' onSubmit={this.handleSubmit}>
+        <div className='form-group'>
+          <label className='col-lg-2 control-label'>Say something:</label>
+          <div className='col-lg-10'>
+            <input type='text' className='form-control' value={this.state.content} onChange={this.handleContentChange} />
+          </div>
+        </div>
       </form>
     );
   }
