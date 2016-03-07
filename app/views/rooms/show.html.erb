@@ -1,7 +1,3 @@
 <h1>Chat room</h1>
 
-<div id="messages">
-  <%= render @messages %>
-</div>
-
-<%= react_component('MessageForm') %>
+<%= react_component('ChatRoom', {messages: @messages}) %>
