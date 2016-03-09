@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChattyChat
+    = csrf_meta_tags
+    = action_cable_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+  %body
+    %nav
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          .pull-left
+            = image_tag("logo.svg", alt: "Chatty")
+          = link_to "ChattyChat", root_url, class: "navbar-brand"
+    .container
+      = yield

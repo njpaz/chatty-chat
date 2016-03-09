@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'react-rails', '~> 1.6.2'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'haml-rails', '~> 0.9'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
