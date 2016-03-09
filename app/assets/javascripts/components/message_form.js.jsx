@@ -1,10 +1,10 @@
 var MessageForm = React.createClass({
   getInitialState: function() {
-    return {content: ''};
+    return {content: '', username: ''};
   },
 
   handleSubmit: function(evt) {
-    App.room.speak(this.state.content);
+    App.room.speak(this.state.content, this.state.username);
     this.setState({content: ''});
     evt.preventDefault();
   },
@@ -13,14 +13,30 @@ var MessageForm = React.createClass({
     this.setState({content: evt.target.value});
   },
 
+  handleUsernameChange: function(evt) {
+    this.setState({username: evt.target.value});
+  },
+
   render: function() {
     return (
-      <form className='form-horizontal' onSubmit={this.handleSubmit}>
-        <div className='form-group'>
-          <label className='control-label'>Say something:</label>
-          <input type='text' className='form-control' value={this.state.content} placeholder='Hello, world!' onChange={this.handleContentChange} />
+      <div className='row'>
+        <div className='col-md-4'>
+          <form className='form-horizontal'>
+            <div className='form-group'>
+              <label className='control-label'>Who are you?</label>
+              <input type='text' className='form-control' value={this.state.username} placeholder='A Person' onChange={this.handleUsernameChange} />
+            </div>
+          </form>
         </div>
-      </form>
+        <div className='col-md-8'>
+          <form className='form-horizontal' onSubmit={this.handleSubmit}>
+            <div className='form-group'>
+              <label className='control-label'>Say something:</label>
+              <input type='text' className='form-control' value={this.state.content} placeholder='Hello, world!' onChange={this.handleContentChange} />
+            </div>
+          </form>
+        </div>
+      </div>
     );
   }
 });

@@ -24,9 +24,9 @@ var MessageList = React.createClass({
 
   render: function() {
     var nodes = this.props.messages.map(function(message) {
-      return <li className='list-group-item' key={message.id}>{message.content}</li>;
+      return <li className='list-group-item' key={message.id}><strong>{message.username}</strong> {message.content}</li>;
     });
 
-    return <ul className='list-group fixed-height'>{nodes}</ul>;
+    return <ul className='list-group fixed-height message-box'>{nodes}</ul>;
   }
 });
