@@ -30,9 +30,13 @@ var ChatRoom = React.createClass({
 
   render: function() {
     return (
-      <div className='well'>
-        <MessageList messages={this.state.messages} />
-        <MessageForm />
+      <div className='panel panel-default'>
+        <div className='panel-body'>
+          <MessageList messages={this.state.messages} />
+          <div className='col-md-12'>
+            <MessageForm />
+          </div>
+        </div>
       </div>
     );
   }
