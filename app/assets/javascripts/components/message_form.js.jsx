@@ -1,10 +1,10 @@
 var MessageForm = React.createClass({
   getInitialState: function() {
-    return {content: '', username: ''};
+    return {content: ''};
   },
 
   handleSubmit: function(evt) {
-    App.room.speak(this.state.content, this.state.username);
+    App.room.speak(this.state.content);
     this.setState({content: ''});
     evt.preventDefault();
   },
@@ -13,22 +13,10 @@ var MessageForm = React.createClass({
     this.setState({content: evt.target.value});
   },
 
-  handleUsernameChange: function(evt) {
-    this.setState({username: evt.target.value});
-  },
-
   render: function() {
     return (
       <div className='row'>
-        <div className='col-md-4'>
-          <form className='form-horizontal'>
-            <div className='form-group'>
-              <label className='control-label'>Who are you?</label>
-              <input type='text' className='form-control' value={this.state.username} placeholder='A Person' onChange={this.handleUsernameChange} />
-            </div>
-          </form>
-        </div>
-        <div className='col-md-8'>
+        <div className='col-md-12'>
           <form className='form-horizontal' onSubmit={this.handleSubmit}>
             <div className='form-group'>
               <label className='control-label'>Say something:</label>

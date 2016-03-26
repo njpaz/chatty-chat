@@ -11,7 +11,7 @@ var ChatRoom = React.createClass({
   },
 
   componentDidMount: function() {
-    App.room = App.cable.subscriptions.create("RoomChannel", {
+    App.room = App.cable.subscriptions.create({channel: "RoomChannel", room_id: this.props.room_id}, {
       connected: function() {},
 
       disconnected: function() {},

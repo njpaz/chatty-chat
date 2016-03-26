@@ -1,2 +1,2 @@
-%h2 Chat room
-= react_component('ChatRoom', {messages: @messages})
+%h3= @room.name
+= react_component('ChatRoom', {messages: @room.messages, room_id: @room.id})
